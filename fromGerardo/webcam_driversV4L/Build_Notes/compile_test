@@ -1,0 +1,1 @@
+gcc test.c -I/home/gerardo/Stuff/Software/libwebcam-0.2.1/common/include -lwebcam -std=gnu99

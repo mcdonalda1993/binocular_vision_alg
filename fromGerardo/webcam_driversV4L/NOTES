@@ -1,0 +1,74 @@
+08/03/2012 11:00
+
+Cameras should be connected in different USB buses; otherwise the buffer will not be capable of parsing images.
+OpenCV program is running fine. Use lsusb to check buses...
+
+08/03/2012 17:42
+
+Got cameras and focus working...
+
+09/03/2012 13:07
+
+Cannot setup resolution using OpenCV. Checking V4L2 API to implement that manually.
+
+09/03/2012 23:00
+
+Got to setup camera resolution through V4L2 API; however, there was not a clear way to save images from buffer; I found a couple of examples that save to JPEG and YUV formats (directly from the camera buffer). Check this tomorrow.
+
+14/03/2012 17:19
+
+I managed to integrate V4L2 API with libwebcam in order to change specifically the reoslution and focus of the cameras. Moreover, the library has turned up to be more generic in terms of control options!
+
+I still need to check if this is working and I might integrate it with OPENCV following Giacomo Spigler's libv4l2cam (http://code.google.com/p/libv4l2cam/downloads/list)
+
+15/03/2012 11:45 
+
+Both cameras are up and running... :D
+
+I will try to add OPENCV support; it's not important though... OPENCV implementation will be based on Giacomo Spigler's codes.
+
+15/03/2012 13:39 
+
+Completed: liblogitech v0.1 released!
+
+10/04/2012 16:21 
+
+This piece of code should be used to set the exposure control of the camera...
+
+************************
+case A_EXPOSURE_ON:
+	control.id    =V4L2_CID_EXPOSURE_AUTO;
+	control.value =1;
+	if ((value = ioctl(videoIn->fd, VIDIOC_S_CTRL, &control)) < 0)
+		printf("Set Auto Exposure on error\n");
+	else
+		printf("Auto Exposure set to %d\n", control.value);
+	break;
+case A_EXPOSURE_OFF:
+	control.id    =V4L2_CID_EXPOSURE_AUTO;
+	control.value =8;
+	if ((value = ioctl(videoIn->fd, VIDIOC_S_CTRL, &control)) < 0)
+		printf("Set Auto Exposure off error\n");
+	else
+		printf("Auto Exposure set to %d\n", control.value);
+	break;
+************************
+
+"v4l2-ctl --list-ctrls" returns:
+
+exposure_auto (menu)   : min=0 max=3 default=3 value=3
+
+so "contro.value = 8;" in the A_EXPOSURE_OFF case is wrong! Setting exposure with:
+
+v4l2-ctl -c exposure_auto=##
+
+gives:
+
+V4L2_EXPOSURE_MANUAL = 0, /* Gives I/O error */
+V4L2_EXPOSURE_AUTO = 1, /* works */
+V4L2_EXPOSURE_SHUTTER_PRIORITY = 2, /* Gives I/O error */
+V4L2_EXPOSURE_APERTURE_PRIORITY = 3 /* works */
+
+11/04/2012 14:28 
+
+Exposure/Aperture control done!

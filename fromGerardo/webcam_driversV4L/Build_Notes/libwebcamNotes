@@ -1,0 +1,7 @@
+1. Downlopad "libwebcam" from: https://launchpad.net/ubuntu/+source/libwebcam
+
+2. Extract and build...
+   - In the libwebcam folder create a "build" directory and access it
+   - cmake ..
+   - make
+   - sudo make install

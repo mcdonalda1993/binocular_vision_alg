@@ -1,0 +1,1 @@
+g++ `pkg-config --cflags opencv` myVideo3.c -o myVideo3 `pkg-config --libs opencv` -I/home/gerardo/Documents/Webcams_CLOPEMA/Packages/libwebcam-0.2.1/common/include -lwebcam
