@@ -1,0 +1,4 @@
+bool doIt
+---
+string status_message
+int16 success # 0: Something went wrong, 1: Images saved, 2: Hand-Eye calibration done

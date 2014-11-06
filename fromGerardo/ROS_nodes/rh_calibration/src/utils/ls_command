@@ -1,0 +1,3 @@
+To get a list with all image files and paths, run:
+
+ls -d $PWD/* > list.txt

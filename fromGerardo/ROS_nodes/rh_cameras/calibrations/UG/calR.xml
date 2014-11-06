@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<distortion_model>plumb_bob</distortion_model>
+<camera_name>right_camera</camera_name>
+<height>4928</height>
+<width>3264</width>
+<K type_id="opencv-matrix">
+  <rows>3</rows>
+  <cols>3</cols>
+  <dt>d</dt>
+  <data>
+    7.2086509130960339e+03 0. 2.4968067783383403e+03 0.
+    7.2056102534127731e+03 1.7057768716307273e+03 0. 0. 1.</data></K>
+<D type_id="opencv-matrix">
+  <rows>1</rows>
+  <cols>5</cols>
+  <dt>d</dt>
+  <data>
+    -1.7929756831951020e-02 -1.0193142963447036e-01 0. 0. 0.</data></D>
+<P type_id="opencv-matrix">
+  <rows>3</rows>
+  <cols>4</cols>
+  <dt>d</dt>
+  <data>
+    6.6923658045880429e+03 -1.4065774419775909e+00
+    3.6620936681572057e+03 -1.9613615693948802e+03
+    -2.9832560167387260e+02 7.1982066177487895e+03
+    1.7109404383148608e+03 2.6543897847842263e+01
+    -1.6648115466975583e-01 -4.2977838975735245e-03
+    9.8603527025831816e-01 2.7085594013736201e-02</data></P>
+</opencv_storage>

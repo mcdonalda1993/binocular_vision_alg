@@ -1,0 +1,4 @@
+sensor_msgs/CameraInfo camera_info
+---
+string status_message
+bool success # True if the call succeeded

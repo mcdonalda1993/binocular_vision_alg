@@ -1,0 +1,32 @@
+<!--
+	Launch file for testing purposes
+	
+	After launching this file, it is necessary to publish the
+	acquisition command. This can be done as below:
+		rostopic pub -1 /RH/cmd/acquire rh_cameras/CamerasSync '{timeStamp: now, data: full}'
+		
+	SoCS, UoG. Gerardo Aragon-Camarasa and Susanne B Oehler. August 2012 
+-->
+
+<launch>
+
+	<!-- Include Robot Head parameter server configuration. -->
+    <include file="$(find rh_launch)/launch/RH_parameters.launch" />
+	
+	<!-- rh_cameras -->
+		<!--<node pkg="rh_cameras" type="RHcam_headerCameras" name="RH_correct">
+		</node> -->
+
+		<node pkg="rh_cameras" type="RHcam_left" name="RH_camera_left" output="screen">
+		</node>
+
+		<node pkg="rh_cameras" type="RHcam_right" name="RH_camera_right" output="screen">
+		</node>
+
+		<node pkg="rh_cameras" type="RHcam_test" name="RHcam_test" output="screen">
+		</node>
+
+		<node pkg="rh_cameras" type="RHcam_saveImgs" name="RHcam_saveImgs" output="screen">
+		</node>
+</launch>
+

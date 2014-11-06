@@ -1,0 +1,32 @@
+<!--
+	Launch file for testing purposes
+	
+	After launching this file, it is necessary to publish the
+	acquisition command. This can be done as below:
+		rostopic pub -1 /RH/cmd/acquire rh_cameras/CamerasSync '{timeStamp: now, data: full}'
+		
+	SoCS, UoG. Gerardo Aragon-Camarasa. November 2012 
+-->
+
+<launch>
+    
+    <!-- Image list file -->
+    <param name="/RH/cameras/image_list" value="$(find rh_calibration)/src/input_images.xml" />
+	
+	<!-- Cameras -->
+	<arg name="resize" default="0"/>
+		
+	<group if="$(arg resize)">
+        <param name="/RH/resize_imgs" value="2.0" />
+	    <node pkg="rh_cameras" type="RHcam_resize" name="RHcam_resize" output="screen">
+	    </node>
+    </group>
+	
+	<!-- PTU and tf publisher-->
+	<param name="/RH/inputPTU" value="$(find rh_ptu)/src/RH_ptu_sim/input_ptu.xml" />
+	
+	<!-- Calibration service nodes -->
+	<include file="$(find rh_cameras)/launch/RHcam_stereo_simulation_calib.launch" />
+	<include file="$(find rh_calibration)/launch/RHcalibration_service.launch" />
+		
+</launch>

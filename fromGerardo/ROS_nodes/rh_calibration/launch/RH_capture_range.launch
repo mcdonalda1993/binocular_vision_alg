@@ -1,0 +1,32 @@
+<!--
+	Launch file for PTU calibration
+		
+	SoCS, UoG. Gerardo Aragon-Camarasa, October 2014 
+-->
+
+<launch>
+
+	<!-- Include Robot Head parameter server configuration. -->
+    <include file="$(find rh_launch)/launch/RH_parameters_$(optenv CLOPEMA_PARTNER error).launch" />
+    
+    <param name="/PTU/axis" value="2" /> <!-- 1: left and right pan, 2: left and right tilt -->
+    <!-- For pan -->
+    <param name="/PTU/range_min" value="-20" />
+    <param name="/PTU/range_max" value="20" />
+
+    <param name="/RH/calibration/marker_width" value="0.023" />
+    <param name="/RH/calibration/marker_size_x" value="9" />
+    <param name="/RH/calibration/marker_size_y" value="6" />
+
+    <!-- Where to save stuff -->
+	<param name="/RH/calibration/outputImageDir" value="$(find rh_calibration)/calibrations/$(optenv CLOPEMA_PARTNER error)/Images/" />
+    <param name="/RH/calibration/outputCalibDir" value="$(find rh_calibration)/calibrations/$(optenv CLOPEMA_PARTNER error)/" />
+
+    <!-- Scale ratio in order to reduce the image while finding the inner corners-->
+    <param name="/RH/calibration/resize_imgs_factor" value="4.0"/>
+	
+	<node pkg="rh_calibration" type="RHcalibration_young_capture" name="RHcalibration_young_capture" output="screen">
+	</node>
+
+</launch>
+

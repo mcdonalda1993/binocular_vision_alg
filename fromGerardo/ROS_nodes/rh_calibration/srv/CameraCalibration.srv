@@ -1,0 +1,4 @@
+bool doIt
+---
+string status_message
+bool success # True if the call succeeded

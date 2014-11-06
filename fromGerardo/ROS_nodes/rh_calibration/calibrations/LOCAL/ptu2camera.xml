@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<gripperHcamera_LeftCamera type_id="opencv-matrix">
+  <rows>4</rows>
+  <cols>4</cols>
+  <dt>f</dt>
+  <data>
+    9.05476987e-01 1.13366291e-01 4.08973724e-01 3.19734290e-02
+    -2.77872980e-01 8.86747062e-01 3.69413406e-01 9.85425245e-03
+    -3.20777208e-01 -4.48138088e-01 8.34430516e-01 2.65853815e-02 0. 0.
+    0. 1.</data></gripperHcamera_LeftCamera>
+<gripperHcamera_RightCamera type_id="opencv-matrix">
+  <rows>4</rows>
+  <cols>4</cols>
+  <dt>f</dt>
+  <data>
+    8.89629364e-01 1.10774375e-01 4.43044782e-01 7.76795344e-03
+    -2.82163352e-01 8.96138430e-01 3.42519820e-01 3.02306544e-02
+    -3.59087050e-01 -4.29726660e-01 8.28487515e-01 5.77802863e-03 0. 0.
+    0. 1.</data></gripperHcamera_RightCamera>
+<!-- a set of 6-tuples: row, pitch yaw (euler angles) and x, y and z (translation) of the transformation -->
+<!-- This has to be reflected in the robot_head.xacro file in rh_ptu  -->
+<leftpanHrightpan type_id="opencv-matrix">
+  <rows>1</rows>
+  <cols>6</cols>
+  <dt>f</dt>
+  <data>
+    0. 0. 0. 0. 0. 0.</data></leftpanHrightpan>
+</opencv_storage>

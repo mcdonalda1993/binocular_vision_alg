@@ -1,0 +1,37 @@
+<!--
+	Launch file for testing purposes
+	
+	After launching this file, it is necessary to publish PTU messages as follows:
+	rostopic pub -1 /RH/cmd/PTU_2pos sensor_msgs/JointState '{ header: {frame_id: dummy }, name: ['dummy'], position: [-1], velocity: [0]}'
+		
+	SoCS, UoG. Gerardo Aragon-Camarasa. November 2012 
+-->
+
+<launch>
+
+	<!-- Include Robot Head parameter server configuration. -->
+    <include file="$(find rh_launch)/launch/RH_parameters_$(optenv CLOPEMA_PARTNER error).launch" />
+    
+    <!-- PTU and tf publisher-->
+	<param name="/RH/inputPTU" value="$(find rh_ptu)/src/RH_ptu_sim/input_ptu_cal1.xml" />
+
+	<node pkg="rh_ptu" type="RHptu_sim" name="RHptu_sim" output="screen">
+	</node>
+
+<!--	<param name="use_gui" value="true"/>-->
+<!--	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >-->
+<!--		<remap from="joint_states" to="/RH/cmd/PTU_status" />	-->
+<!--	</node>-->
+
+	<arg name="he_calibFile" value="$(find rh_calibration)/calibrations/out_gripper2camera.xml" />
+
+	<node pkg="rh_calibration" type="RHpublishTransform" name="RHpublishTransform" args="$(arg he_calibFile)" output="screen">
+	</node>
+	
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" >
+		<remap from="joint_states" to="/RH/cmd/PTU_status" />
+	</node>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find rh_ptu)/description/robot_head.rviz" />
+	
+</launch>

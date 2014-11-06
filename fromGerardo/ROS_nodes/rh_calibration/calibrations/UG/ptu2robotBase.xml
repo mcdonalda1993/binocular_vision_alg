@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<robotBase2ptu_LeftCamera type_id="opencv-matrix">
+  <rows>4</rows>
+  <cols>4</cols>
+  <dt>f</dt>
+  <data>
+    6.67421579e-01 8.47985968e-02 7.39808142e-01 -4.78642225e-01
+    -8.50368962e-02 9.95636165e-01 -3.74180675e-02 1.32113963e-01
+    -7.39768803e-01 -3.79404500e-02 6.71751559e-01 1.75834334e+00 0. 0.
+    0. 1.</data></robotBase2ptu_LeftCamera>
+<robotBase2ptugripperHcamera_RightCamera type_id="opencv-matrix">
+  <rows>4</rows>
+  <cols>4</cols>
+  <dt>f</dt>
+  <data>
+    6.68343067e-01 2.94080861e-02 7.43248284e-01 -4.74465340e-01
+    -9.14306566e-02 9.94852364e-01 4.28424217e-02 -1.56117469e-01
+    -7.38176107e-01 -9.65938345e-02 6.67619407e-01 1.75309873e+00 0. 0.
+    0. 1.</data></robotBase2ptugripperHcamera_RightCamera>
+</opencv_storage>

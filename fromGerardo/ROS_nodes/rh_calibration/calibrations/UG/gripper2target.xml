@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<gripperHtarget_LeftCamera type_id="opencv-matrix">
+  <rows>4</rows>
+  <cols>4</cols>
+  <dt>f</dt>
+  <data>
+    1.97454691e-02 -1.54221892e-01 9.87838924e-01 -1.25574656e-02
+    9.99672532e-01 1.91327333e-02 -1.69949830e-02 -8.65831375e-02
+    -1.62789226e-02 9.87851024e-01 1.54549241e-01 3.02680761e-01 0. 0.
+    0. 1.</data></gripperHtarget_LeftCamera>
+<gripperHtargetgripperHcamera_RightCamera type_id="opencv-matrix">
+  <rows>4</rows>
+  <cols>4</cols>
+  <dt>f</dt>
+  <data>
+    1.89121962e-02 -1.54757649e-01 9.87771451e-01 -1.29810832e-02
+    9.99680281e-01 1.95112228e-02 -1.60833001e-02 -8.70763659e-02
+    -1.67835355e-02 9.87759769e-01 1.55077219e-01 3.02882522e-01 0. 0.
+    0. 1.</data></gripperHtargetgripperHcamera_RightCamera>
+</opencv_storage>

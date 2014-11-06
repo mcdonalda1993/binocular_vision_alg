@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<H_robotBase2camL type_id="opencv-matrix">
+  <rows>4</rows>
+  <cols>4</cols>
+  <dt>f</dt>
+  <data>
+    -2.99531966e-02 -7.57431209e-01 6.52195752e-01 -2.91326672e-01
+    -9.97833610e-01 -1.51340868e-02 -6.34169430e-02 1.22671545e-01
+    5.79090267e-02 -6.52713001e-01 -7.55354345e-01 1.79128385e+00 0. 0.
+    0. 1.</data></H_robotBase2camL>
+</opencv_storage>

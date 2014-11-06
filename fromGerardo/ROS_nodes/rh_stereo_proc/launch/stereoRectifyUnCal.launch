@@ -1,0 +1,48 @@
+<!--
+	Launch file for testing purposes
+	
+	After launching this file, it is necessary to publish the
+	acquisition command. This can be done as below:
+		rostopic pub -1 /acquire std_msgs/String <double dash> full
+		
+	SoCS, UoG. Gerardo Aragon-Camarasa. January 2013 
+-->
+
+<launch>
+	
+	<!-- Path and file of the Sift GPU file. It may be found in the BIN folder of the node -->
+	<param name="/RH/sift_gpu/lib_path"
+		value="$(find rh_siftgpu)/bin/libsiftgpu.so" />
+		
+	<!-- Log-likelihood ratio to match sift features of the left and right images -->
+	<param name="/RH/sift_gpu/ratio_max" value="0.8" />
+	
+	<node pkg="rh_feature_extraction" type="RHsiftgpu_node" name="RHsiftgpu_node">
+	</node>
+	
+	<!-- Test images
+		Set 1: test_image1 and test_image2
+		Set 2: test_image3 and test_image4 -->
+	<param name="/RH/test_image1"
+		value="$(find rh_stereo_proc)/src/test_imgs/1L.jpg" />
+	<param name="/RH/test_image2"
+		value="$(find rh_stereo_proc)/src/test_imgs/1R.jpg" />
+	<param name="/RH/test_image3"
+		value="$(find rh_stereo_proc)/src/test_imgs/3L.jpg" />
+	<param name="/RH/test_image4"
+		value="$(find rh_stereo_proc)/src/test_imgs/3R.jpg" />
+		
+	<node pkg="rh_feature_extraction" type="RHloadImgs_test" name="RHloadImgs_test">
+	</node>
+
+	<node pkg="rh_cameras" type="RHcam_test" name="RHcam_test">
+	</node>
+	
+	<node pkg="rh_stereo_proc" type="RHstereo_rectifyUncal" name="RHstereo_rectifyUncal">
+	    <remap from="/RH/left_cam/image" to="left_image_rectified" />
+		<remap from="/RH/right_cam/image" to="right_image_rectified" />
+	</node>
+		
+
+</launch>
+
